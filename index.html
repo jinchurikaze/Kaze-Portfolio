@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kaze — 3D Portfolio</title>
+<meta name="description" content="Kaze builds cozy, low-poly 3D models and worlds for Roblox in Blender.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;800&family=Nunito+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE   everyday personal portfolio, quiet and clean
+   IDEA    a simple artist's sheet: name, three projects, contact
+   PICTURE the real renders, each project led by one large image
+   COLOUR  warm plaster ground, olive ink, one honey-oak accent
+   TYPE    Outfit display + Nunito Sans text
+   LAYOUT  one centred column; projects stack; small image rows wrap */
+:root{color-scheme:light dark;--bg:light-dark(#f4efe6,#151813);--ink:light-dark(#1f251d,#ece7dc);--mute:light-dark(#5f665a,#a9b0a1);--card:light-dark(#fbf8f2,#1d221a);--line:light-dark(#e3dacb,#2d3529);--accent:light-dark(#b06d30,#dc9b5c)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 "Nunito Sans",system-ui,sans-serif;overflow-x:clip}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2{font-family:Outfit,system-ui,sans-serif;line-height:1.05;letter-spacing:-.02em;margin:0;text-wrap:balance}
+h1{font-size:clamp(38px,6vw,60px);font-weight:800}
+h2{font-size:clamp(28px,3.6vw,36px);font-weight:800}
+p{margin:0}
+.wrap{max-width:1000px;margin:0 auto;padding-inline:max(5vw,18px)}
+header{padding-block:clamp(48px,8vw,96px) 24px}
+.name{font:600 18px Outfit,sans-serif;color:var(--accent);margin-bottom:12px}
+header p.lead{font-size:19px;color:var(--mute);max-width:36em;margin-top:16px}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.links a{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);text-decoration:none;font-weight:700;font-size:15px}
+.links a:hover,.links a:focus-visible{border-color:var(--accent);outline:none}
+.hero{margin-top:36px}
+section{padding-block:clamp(40px,6vw,72px);border-top:1px solid var(--line)}
+.head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:6px 24px;margin-bottom:10px}
+.tag{font-size:14px;font-weight:700;color:var(--accent)}
+section>.wrap>p{color:var(--mute);max-width:40em;margin-bottom:24px}
+.main{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:clamp(12px,2vw,24px)}
+.row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:12px}
+.row.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.row figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:10px;display:flex;flex-direction:column}
+.row .im{aspect-ratio:1;position:relative}
+.row .im img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.row.two .im{aspect-ratio:16/9}
+figcaption{font-size:14px;font-weight:700;text-align:center;margin-top:6px}
+footer{border-top:1px solid var(--line);padding-block:40px 56px}
+footer h2{margin-bottom:14px}
+.contact{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:620px}
+.contact div{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 18px}
+.contact b{display:block;font-size:13px;color:var(--mute);font-weight:700}
+.contact span{font-weight:700;overflow-wrap:anywhere}
+.small{color:var(--mute);font-size:14px;margin-top:28px}
+@media(max-width:700px){.row{grid-template-columns:repeat(2,minmax(0,1fr))}.row.two{grid-template-columns:minmax(0,1fr)}.contact{grid-template-columns:minmax(0,1fr)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <p class="name">Kaze</p>
+  <h1>Cozy low-poly 3D for Roblox games.</h1>
+  <p class="lead">I model rooms, props and maps in Blender: furniture with working doors, a pastel sky-island farm, and a junkyard salvage map.</p>
+  <div class="links">
+    <a href="#home-kit">Home Kit</a>
+    <a href="#cloud-kitchen">Cloud Kitchen</a>
+    <a href="#magnet-salvage">Magnet Salvage</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <img class="hero" src="img/all_rooms.webp" width="1800" height="1127" alt="Four low-poly furnished rooms: kitchen, bedroom, bathroom and living room">
+</header>
+
+<main>
+<section id="home-kit">
+  <div class="wrap">
+    <div class="head"><h2>Cozy Low-Poly Home Kit</h2><span class="tag">Blender · PBR textures</span></div>
+    <p>Four furnished rooms for a roleplay game, sized for R15 avatars. Doors, drawers, the oven and the washer all open on real hinges.</p>
+    <div class="row">
+      <figure><div class="im"><img src="img/kitchen.webp" width="1400" height="1177" loading="lazy" alt="Kitchen"></div><figcaption>Kitchen</figcaption></figure>
+      <figure><div class="im"><img src="img/bedroom.webp" width="1382" height="1182" loading="lazy" alt="Bedroom"></div><figcaption>Bedroom</figcaption></figure>
+      <figure><div class="im"><img src="img/bathroom.webp" width="1369" height="1192" loading="lazy" alt="Bathroom"></div><figcaption>Bathroom</figcaption></figure>
+      <figure><div class="im"><img src="img/living_room.webp" width="1387" height="1173" loading="lazy" alt="Living room"></div><figcaption>Living room</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="cloud-kitchen">
+  <div class="wrap">
+    <div class="head"><h2>Cloud Kitchen</h2><span class="tag">Stylised · outlined</span></div>
+    <p>A pastel farming and baking game on floating sky islands, with 18 growing crops, 37 desserts and drinks, helpers and decorations.</p>
+    <div class="main"><img src="img/CK_Island_Greenhouse.webp" width="1075" height="892" loading="lazy" alt="Greenhouse sky island" style="margin:0 auto;max-height:520px;width:auto"></div>
+    <div class="row">
+      <figure><div class="im"><img src="img/CK_PotionShop.webp" width="943" height="649" loading="lazy" alt="Potion cart and merchant"></div><figcaption>Potion shop</figcaption></figure>
+      <figure><div class="im"><img src="img/CK_BakingStation.webp" width="768" height="948" loading="lazy" alt="Baking station"></div><figcaption>Baking station</figcaption></figure>
+      <figure><div class="im"><img src="img/LegendaryCloudCake.webp" width="313" height="294" loading="lazy" alt="Legendary cloud cake"></div><figcaption>Cloud cake</figcaption></figure>
+      <figure><div class="im"><img src="img/CK_Helper_Pip.webp" width="506" height="680" loading="lazy" alt="Pip the helper"></div><figcaption>Pip, a helper</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="magnet-salvage">
+  <div class="wrap">
+    <div class="head"><h2>Magnet Salvage Simulator</h2><span class="tag">Map · props</span></div>
+    <p>A junkyard map built for magnet hunting, with ponds, a scrap pen and a flooded lot, plus the tools and machines players use.</p>
+    <div class="main"><img src="img/MSS_Map.webp" width="1600" height="1034" loading="lazy" alt="Full Magnet Salvage map"></div>
+    <div class="row two">
+      <figure><div class="im"><img src="img/MSS_ScrapPen.webp" width="1284" height="732" loading="lazy" alt="Scrap pen"></div><figcaption>Scrap pen</figcaption></figure>
+      <figure><div class="im"><img src="img/MSS_Large.webp" width="1300" height="477" loading="lazy" alt="Arcade machines, scrap scale and workbench"></div><figcaption>Machines and workbench</figcaption></figure>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2>Contact</h2>
+    <div class="contact">
+      <div><b>Email</b><span><a href="mailto:kazechi5@gmail.com">kazechi5@gmail.com</a></span></div>
+      <div><b>Roblox</b><span>kazeieie</span></div>
+    </div>
+    <p class="small">© 2026 Kaze · Made in Blender for Roblox</p>
+  </div>
+</footer>
+</body>
+</html>

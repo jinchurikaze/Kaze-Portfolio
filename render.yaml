@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: kaze-portfolio
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: .
